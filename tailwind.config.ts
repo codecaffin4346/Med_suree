@@ -10,6 +10,13 @@ export default {
   theme: {
   	extend: {
   		colors: {
+			medsure: {
+				primary: '#2A6B5D',
+				secondary: '#F17B60',
+				light: '#E8F5F2',
+				dark: '#1A433A',
+				accent: '#FFD0C5'
+			},
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

@@ -34,7 +34,15 @@ const initialFormData: FormData = {
 
 const PredictionForm = () => {
   const [formData, setFormData] = useState<FormData>(initialFormData);
-  const [prediction, setPrediction] = useState<any>(null);
+  interface Prediction {
+    annualCost: number;
+    monthlyCost: number;
+    breakdown: { name: string; value: number }[];
+    riskFactors: boolean;
+    recommendation: string;
+  }
+
+  const [prediction, setPrediction] = useState<Prediction | null>(null);
   const [loading, setLoading] = useState(false);
   const [activeTab, setActiveTab] = useState('basic');
 
@@ -324,7 +332,7 @@ const PredictionForm = () => {
                             nameKey="name"
                             label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
                           >
-                            {prediction.breakdown.map((entry: any, index: number) => (
+                            {prediction.breakdown.map((entry: { name: string; value: number }, index: number) => (
                               <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                             ))}
                           </Pie>

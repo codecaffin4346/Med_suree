@@ -1,7 +1,8 @@
-import type {Metadata} from 'next';
-import {Geist, Geist_Mono} from 'next/font/google';
+import type { Metadata } from 'next';
+import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
-
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
 const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
@@ -28,20 +29,23 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        {/* <div className="flex flex-col min-h-screen"> */}
         <div className="flex flex-col min-h-screen">
-          <header className="bg-background border-b py-4">
+        <Navbar />
+          {/* <header className="bg-background border-b py-4">
             <div className="container mx-auto px-4">
               <img src="/logo.png" alt="MediSure Logo" className="h-8" />
             </div>
-          </header>
+          </header> */}
           <main className="flex-grow">
             {children}
           </main>
-          <footer className="bg-background border-t py-4">
+          <Footer />
+          {/* <footer className="bg-background border-t py-4">
             <div className="container mx-auto px-4 text-center text-sm text-muted-foreground">
               <p>&copy; 2024 MediSure. All rights reserved.</p>
             </div>
-          </footer>
+          </footer> */}
         </div>
       </body>
     </html>
